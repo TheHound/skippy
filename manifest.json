@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Skippy",
+  "description": "Skip Amazon Prime Adverts",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://amazon.co.uk/gp/video/detail/*",
+        "https://*.amazon.co.uk/gp/video/detail/*"
+      ]
+    }
+  ]
+}
