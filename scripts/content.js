@@ -10,22 +10,11 @@ var observer = new MutationObserver(function (mutations) {
     if (execSkipChecks) {
         skip();
     }
-    // if (!timeoutWaiting) {
-    //     timeoutWaiting = true;
-    //     setTimeout(() => {
-    //         skip();
-    //         timeoutWaiting = false;
-    //     }, 100);
-    // }
 });
 var config = { attributes: false, childList: true, subtree: true, characterData: false };
-// var config = { attributes: true, childList: true, subtree: true, characterData: true };
 observer.observe(target, config);
 
 function skip() {
-    // if (!isVisible(document.querySelector('.webPlayerUIContainer'))) {
-    //     return
-    // }
     const adSkipTerms = [
         // AMZ Prime
         {
@@ -65,15 +54,5 @@ function skip() {
         execSkipChecks = false;
         skipElement.click();
         setTimeout(() => { execSkipChecks = true }, 1000);
-    }
-
-    function isVisible(elem) {
-        return elem && elem.checkVisibility({
-            checkOpacity: true,      // Check CSS opacity property too
-            checkVisibilityCSS: true // Check CSS visibility property too
-        });
-    };
-    function wait(e) {
-        return new Promise(t => setTimeout(t, e));
     }
 }
